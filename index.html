@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша история ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #fff5f5, #f8e8f8);
+            color: #6d4a6f;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.5s;
+        }
+        h1 {
+            color: #d46a92;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .slide-container {
+            max-width: 650px;
+            width: 90%;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        .slide {
+            display: none;
+            animation: fade 1.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(210, 150, 180, 0.3);
+            border: 8px solid white;
+            margin: 0 auto;
+        }
+        .month {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d46a92;
+            margin: 15px 0 5px;
+        }
+        .caption {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #8b5a7d;
+            max-width: 80%;
+            margin: 15px auto;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+        }
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: #f0d6e0;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #e75480, #d46a92);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+        .heart {
+            color: #ff6b8b;
+            font-size: 20px;
+            margin: 0 3px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .control-btn {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(231, 84, 128, 0.3);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .control-btn:hover {
+            background: #d46a92;
+            transform: scale(1.05);
+        }
+        #musicButton {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(231, 84, 128, 0.3);
+            transition: all 0.3s;
+        }
+        #musicButton:hover {
+            background: #d46a92;
+            transform: scale(1.05);
+        }
+        .slide-counter {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #8b5a7d;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 1000;
+            animation: confetti-fall 5s linear forwards;
+        }
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Наша история в месяцах <span class="heart">❤</span></h1>
+    
+    <div class="controls">
+        <button class="control-btn" id="prevBtn">← Назад</button>
+        <button class="control-btn" id="nextBtn">Вперед →</button>
+    </div>
+    
+    <div class="slide-container">
+        <!-- Октябрь -->
+        <div class="slide active">
+            <img src="photos/october.jpg" alt="Октябрь">
+            <div class="month">Октябрь 2024</div>
+            <div class="caption">Твоя первая фотография, увидев те глаза первый раз на ней так близко, я начал видеть их везде...</div>
+        </div>
+        
+        <!-- Ноябрь -->
+        <div class="slide">
+            <img src="photos/november.jpg" alt="Ноябрь">
+            <div class="month">Ноябрь 2024</div>
+            <div class="caption">Та самая фотография, которая будет вечно со мной, на моем тапке...</div>
+        </div>
+        
+        <!-- Декабрь -->
+        <div class="slide">
+            <img src="photos/december.jpg" alt="Декабрь">
+            <div class="month">Декабрь 2024</div>
+            <div class="caption">Ну тут, мне даже сказать нечего, просто идеальное начало декабря...</div>
+        </div>
+        
+        <!-- Январь -->
+        <div class="slide">
+            <img src="photos/january.jpg" alt="Январь">
+            <div class="month">Январь 2025</div>
+            <div class="caption">Одна из первой нашей совместной фотографии, а как ты сияешь, это просто смак...</div>
+        </div>
+        
+        <!-- Март -->
+        <div class="slide">
+            <img src="photos/march.jpg" alt="Март">
+            <div class="month">Март 2025</div>
+            <div class="caption">Ну, а тут нас понесло теперь фотография вместе, это стала база</div>
+        </div>
+        
+        <!-- Апрель -->
+        <div class="slide">
+            <img src="photos/april.jpg" alt="Апрель">
+            <div class="month">Апрель 2025</div>
+            <div class="caption">А тут, я думаю, слова мои будут лишними </div>
+        </div>
+        
+        <!-- Май -->
+        <div class="slide">
+            <img src="photos/may.jpg" alt="Май">
+            <div class="month">Май 2025</div>
+            <div class="caption">Май не успел начатся, как вот она общая фотография, и снова твои прекрасные глаза...</div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+        
+        <div class="slide-counter" id="slideCounter">1 / 7</div>
+    </div>
+
+    <button id="musicButton">🎵 Включить музыку</button>
+    <audio id="bgMusic" loop>
+        <source src="music/love_song.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <script>
+        // Слайд-шоу
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress');
+        const slideCounter = document.getElementById('slideCounter');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let slideInterval;
+        const slideDuration = 10000; // 10 секунд
+        let isPlaying = true;
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+            resetProgress();
+            
+            // Меняем фон каждые 3 слайда
+            const hue = (currentSlide * 30) % 360;
+            document.body.style.background = `linear-gradient(135deg, hsl(${hue}, 100%, 97%), hsl(${hue + 30}, 100%, 96%))`;
+            
+            // Конфетти на последнем слайде
+            if (currentSlide === slides.length - 1) {
+                createConfetti();
+            }
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function resetProgress() {
+            progressBar.style.width = '0%';
+            clearInterval(progressInterval);
+            if (isPlaying) {
+                startProgress();
+            }
+        }
+        
+        function startProgress() {
+            let width = 0;
+            const increment = 100 / (slideDuration / 100);
+            progressInterval = setInterval(() => {
+                width += increment;
+                progressBar.style.width = width + '%';
+                if (width >= 100) clearInterval(progressInterval);
+            }, 100);
+        }
+        
+        function toggleSlideshow() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                slideInterval = setInterval(nextSlide, slideDuration);
+                startProgress();
+            } else {
+                clearInterval(slideInterval);
+                clearInterval(progressInterval);
+            }
+        }
+        
+        // Музыка
+        const music = document.getElementById('bgMusic');
+        const button = document.getElementById('musicButton');
+        
+        button.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Автовоспроизведение заблокировано:", e));
+                button.innerHTML = '🔇 Выключить музыку';
+            } else {
+                music.pause();
+                button.innerHTML = '🎵 Включить музыку';
+            }
+        });
+        
+        // Управление с клавиатуры
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+                if (!isPlaying) toggleSlideshow();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+                if (!isPlaying) toggleSlideshow();
+            } else if (e.key === ' ') {
+                toggleSlideshow();
+            }
+        });
+        
+        // Кнопки управления
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            if (!isPlaying) toggleSlideshow();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            if (!isPlaying) toggleSlideshow();
+        });
+        
+        // Конфетти
+        function createConfetti() {
+            const colors = ['#ff6b8b', '#ffb3c6', '#ff8fab', '#fb6f92', '#ffc2d1'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.width = `${Math.random() * 10 + 5}px`;
+                confetti.style.height = `${Math.random() * 10 + 5}px`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Запуск слайд-шоу
+        showSlide(0);
+        slideInterval = setInterval(nextSlide, slideDuration);
+        startProgress();
+        
+        // Попытка автовоспроизведения музыки при взаимодействии
+        document.body.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().catch(e => console.log("Автовоспроизведение заблокировано:", e));
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
